@@ -5,8 +5,6 @@
 #include <cassert>
 #include "Perceptron.h"
 
-// TODO: Add other binary functions
-
 void ORPerceptron()
 {
 	std::cout << "Training OR Perceptron..." << std::endl;
@@ -20,18 +18,45 @@ void ORPerceptron()
 		TrainingSample(true,{ 1, 1 })
 	};
 
-	// Two Input Neurons and One Output.
-	Perceptron slp(2);	// Note: The first argument is for the number of weights or neurons, metaphorically speaking.
+	// Threshhold is 0.5!
+	Perceptron slp(2, 0.2, 0.5);
 
 	// Let's train our network.
-	slp.train(training_set, 14);	// Note: The second argument is for the number of iterations!
+	slp.train(training_set, 5);
 
 	// Let's verify it.
 	assert(slp.get_result({ 0, 0 }) == false);
 	assert(slp.get_result({ 0, 1 }) == true);
 	assert(slp.get_result({ 1, 0 }) == true);
 	assert(slp.get_result({ 1, 1 }) == true);
-	std::cout << "Successfully trained!" << std::endl;
+	std::cout << "OR Perceptron is successfully trained!" << std::endl;
+}
+
+void ANDPerceptron()
+{
+	std::cout << "Training AND Perceptron..." << std::endl;
+
+	// Training set for AND function.
+	std::vector<TrainingSample> training_set =
+	{
+		TrainingSample(false,{ 0, 0 }),
+		TrainingSample(false,{ 0, 1 }),
+		TrainingSample(false,{ 1, 0 }),
+		TrainingSample(true,{ 1, 1 })
+	};
+
+	// Threshhold is 1.5!
+	Perceptron slp(2, 0.2, 1.5);
+
+	// Let's train our network.
+	slp.train(training_set, 5);
+
+	// Let's verify it.
+	assert(slp.get_result({ 0, 0 }) == false);
+	assert(slp.get_result({ 0, 1 }) == false);
+	assert(slp.get_result({ 1, 0 }) == false);
+	assert(slp.get_result({ 1, 1 }) == true);
+	std::cout << "AND Perceptron is successfully trained!" << std::endl;
 }
 
 #endif
