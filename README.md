@@ -15,10 +15,11 @@ You can see the technical views of these implemented perseptrons below. The uppe
 ## Getting started
 
 To see the program in action, you should follow these steps:
+
 1. `$ git clone ` the repo.
 2. Open the project in MS Visual Studio and build it.
 3. `cd ` to the directory of your executable in console.
-4. Run `slp help` for futher instuctions.
+4. Run `slp help` for further instuctions.
 
 #### Credits
 
