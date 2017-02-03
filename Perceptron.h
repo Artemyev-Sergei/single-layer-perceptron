@@ -30,8 +30,8 @@ public:
 			for (auto &sample : training_set) 
 			{
 				bool output = learn(sample.get_output(), sample.get_inputs());	// Correcting weights depending on the result of 
-																				// the comparison between a dot product and a threshold.
-																				// output is a dot product value here.
+												// the comparison between a dot product and a threshold.
+												// output is a dot product value here.
 				if (output != sample.get_output())
 				{
 					std::cout << "Incorrect on { " << sample.get_inputs()[0] << "  " << sample.get_inputs()[1] << " } Perceptron output was " << std::boolalpha << output << std::endl;
